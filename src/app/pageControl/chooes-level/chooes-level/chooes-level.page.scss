@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
+// *{
+//     margin: 0px;
+//     padding: 0px;
+//     // display: block;
+// }
+
+.bg-chooes-level {
+  // --background: url(../../../assets/bg/bg-chooes1.png) 0 0/100% 100% no-repeat;
+  --background: url(../../../../assets/bg/bg-chooes1.png) 0 0/100% 100% no-repeat;
+
+  .cards {
+    .grid-full {
+      ion-row {
+        ion-col {
+          ion-card {
+            h1 {
+              text-align: center;
+              font-family: "Athiti", sans-serif;
+              margin-top: -5px;
+              font-size: 16px;
+            }
+
+            h4 {
+              text-align: center;
+              font-family: "Athiti", sans-serif;
+              margin-top: -5px;
+            }
+
+
+            p {
+              font-family: 'Athiti', sans-serif;
+              text-align: center;
+              font-size: 18px;
+              ;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .h-borrow {
+    margin-left: 20px;
+    ;
+    font-family: "Athiti", sans-serif;
+  }
+
+  .borrow-border {
+    border-bottom: 1px solid var(--ion-color-step-150, #999999);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .c-1 {
+    --background: -webkit-linear-gradient(-55deg, rgb(72, 173, 85) 35%, #7be489 100%) !important;
+    color: #FFF;
+  }
+
+  .c-2 {
+    --background: -webkit-linear-gradient(-55deg, #4aa8de 35%, #1c6fec 100%) !important;
+    color: #FFF;
+  }
+
+  .c-3 {
+    --background: -webkit-linear-gradient(-55deg, #fe6774 35%, #fd5d52 100%) !important;
+    color: #FFF;
+  }
+
+  .c-4 {
+    --background: -webkit-linear-gradient(-55deg, #C02642 35%, #DA5A41 100%) !important;
+    color: #FFF;
+  }
+
+  // .c-5{
+  //   --background: -webkit-linear-gradient(-55deg,rgb(243, 57, 57) 35%,rgb(204, 31, 8)  100%) !important;
+  //   color:#FFF;
+  // }
+  .c-5 {
+    --background: -webkit-linear-gradient(-55deg, rgb(156, 9, 9) 35%,rgb(233, 86, 86) 100%) !important;
+    color: #FFF;
+   
+  }
+
+  .c-7 {
+    --background: -webkit-linear-gradient(-55deg, rgb(173, 0, 121) 35%,rgb(173, 0, 121) 100%) !important;
+    color: #FFF;
+   
+  }
+
+  .c-6 {
+    // --background: -webkit-linear-gradient(-55deg, rgb(79, 151, 245) 35%, rgb(79, 151, 245) 100%) !important;
+    --background: -webkit-linear-gradient(-55deg, rgb(177, 75, 236) 35%, rgb(192, 79, 245) 100%) !important;
+    color: #FFF;
+  }
+}
+
+#choose_level {
+  text-align: center;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%);
+  // margin-top: auto;
+  // margin-bottom: auto;
+}
+
+ion-button {
+  // display:none;
+  // text-align: center;
+  position: relative;
+  // margin-left: 120px;
+  // margin-right: 120px;
+  // --background: #d64f00e1;
+  --background: #d64f00e1;
+  margin-top: 20px;
+  --color: rgb(255, 255, 255);
+  font-family: 'Athiti', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-logout ion-buttn {
+
+  // margin-right: auto;
+}
+
+.login-img {
+  display: block;
+  width: 46%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 0px solid rgba(255, 255, 255, 0.4);
+}
+
+.cards {
+  .grid-full ion-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 5px 0;
+  }
+
+  .row {
+    padding: 0 12px;
+  }
+
+  .col {
+    padding: 5px 0;
+  }
+
+  .card {
+    margin: 0 3px;
+    width: calc(100% - 10px);
+    padding: 14px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    h1 {
+      font-weight: 400;
+      font-size: 2rem;
+      font-size: 3.5rem;
+      font-family: 'Athiti', sans-serif;
+
+    }
+
+    h4 {
+      font-weight: 400;
+      font-size: 1rem;
+      font-size: 2rem;
+      font-family: 'Athiti', sans-serif;
+
+    }
+
+
+    p {
+      font-weight: 100;
+      font-size: 2rem;
+      font-family: 'Athiti', sans-serif;
+
+    }
+  }
+}
+
+.totalScore circle-progress {
+  font-family: 'Athiti', sans-serif;
+
+}
+
+.totalScore {
+  //   margin-left: 11px;
+  //   margin-right: 50px;
+
+}
+
+.total {
+  position: relative;
+  padding: 10px;
+}
+
+circle-progress {
+  // position: relative;   
+  // padding: 30px 80px;
+  //   padding-left: 32%;
+  //   padding-right: 60%;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+
+  ion-card {
+    --background: -webkit-linear-gradient(-55deg, #FE676E 35%, #FD8F52 100%) !important;
+    color: #fff;
+
+    ion-grid {
+      ion-title {
+        font-family: "Athiti", sans-serif;
+      }
+
+      circle-progress {
+        padding: 0px;
+        font-family: "Athiti", sans-serif;
+        color: #fff;
+      }
+
+      ion-label {
+        padding: 15px;
+        margin-top: -120px;
+        font-family: "Athiti", sans-serif;
+      }
+
+      p {
+        padding: 0px;
+        // padding-left: 10px;
+        margin-left: 15px;
+        font-family: "Athiti", sans-serif;
+      }
+
+     
+    }
+
+  }

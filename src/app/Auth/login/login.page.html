@@ -1,0 +1,25 @@
+<ion-content padding class="background-login">
+
+  <div class="spacer" style="width: 300px; height: 10px;"></div>
+ <div class="spacer" style="width: 300px; height: 50px;"></div>
+<div>
+  <img src="../../../assets/logo/logo-bg-w.png" class="login-img">
+</div>
+<h4 id="page10-heading6" style="text-align:center;">เข้าสู่ระบบ</h4>
+<div class="spacer" style="width: 300px; height: 50px;"></div> 
+<form  #form="ngForm" >
+  <div class="dv-pd">
+    
+    <ion-item lines="inset"> 
+      <ion-icon name="log-in"></ion-icon><ion-input type="email" placeholder="รหัสนักศึกษา" name="username" [(ngModel)]="std.username"  required></ion-input>
+    </ion-item>
+
+    <ion-item lines="inset"> 
+      <ion-icon name="key"></ion-icon><ion-input type="password" placeholder="รหัสผ่าน" name="password"  [(ngModel)]="std.password"  required></ion-input>
+    </ion-item>
+  </div>       
+    <ion-button  shape="round" fill="outline" size="large" type="submit" [disabled]="form.invalid" (click)="signin()" expand="block">ยืนยัน</ion-button>      
+</form>   
+<div class="spacer" style="width: 300px; height: 10px;"></div>
+  <p style="text-align:center;color:#f05800f6">ยังไม่มีบัญชี | <a href="" routerLink="/register" style="color: rgb(121, 38, 5);"><b>ลงทะเบียน</b></a>   </p>
+</ion-content>

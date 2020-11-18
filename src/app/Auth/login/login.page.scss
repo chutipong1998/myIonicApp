@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
+
+
+h1{
+    color: rgb(253, 99, 38);
+    font-family: 'Athiti', sans-serif;
+} 
+h2{
+    color: rgb(253, 99, 38);
+    font-family: 'Athiti', sans-serif;
+} 
+h3{
+    color: rgb(253, 99, 38);
+    font-family: 'Athiti', sans-serif;
+}
+h4{
+    color: rgb(121, 38, 5);
+    font-family: 'Athiti', sans-serif;
+    font-weight: bold;
+}
+h5{
+    color: rgb(253, 99, 38);
+    font-family: 'Athiti', sans-serif;
+}
+h6{
+    color: rgb(253, 99, 38);
+    font-family: 'Athiti', sans-serif;
+}
+
+.background-login{
+    --background: url(../../../assets/bg/login6.png) 0 0/100% 100% no-repeat;
+    font-family: 'Athiti', sans-serif;
+}
+
+ion-button{
+    // --background: #d64f00e1;
+    --border-color:#f05800f6;
+    margin-top: 50px;
+    --color: rgb(121, 38, 5);
+    font-family: 'Athiti', sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.dv-pd{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.login-img{
+    display: block; 
+    width: 40%; 
+    height: auto;       
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius:50%;      
+    border:0px solid rgba(255,255,255,0.4);
+  }
+
+  ion-content{
+    p{
+        font-family: 'Athiti', sans-serif;
+    }
+    ion-item{
+        --background: transparent !important;     
+        --color: rgb(121, 38, 5) !important;                  
+        --font-weight:200;
+        --border:0px;
+        --border-bottom: 1px solid #c9c6c3;
+        --border-color:rgb(53, 211, 158);
+        font-family: 'Athiti', sans-serif;
+        --highlight-color-focused:#000;
+        // --inner-padding-bottom:0px;
+       
+        padding-left: 10px;
+        padding-right: 10px;
+        // --background-focused-opacity:lightpink;
+        .item-content{
+            background:none;
+            &.activated{
+                background: rgba(255, 255, 255, 0.822);
+                font-family: 'Athiti', sans-serif;  
+                -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+                filter: blur(5px);
+            }
+        }
+        ion-icon{
+            color:#4b0707f6;
+            padding: 0px;;
+            
+        }
+        ion-input{
+            --placeholder-color: rgb(121, 38, 5);;         
+            font-family: 'Athiti', sans-serif;
+            --color:rgb(121, 38, 5);
+            font-weight: bold;
+            --padding-start:10px;
+            // padding-left: 20px;
+            // padding-right: 10px;
+        }
+    }     
+}
+
+ion-toolbar{
+    --background:rgb(53, 211, 158);
+}
+

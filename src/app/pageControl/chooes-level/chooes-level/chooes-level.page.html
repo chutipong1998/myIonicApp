@@ -1,0 +1,88 @@
+<ion-content padding class="bg-chooes-level">
+  <div class="spacer" style="width: 300px; height: 30px;"></div>
+  <div class="totalScore">
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="30" [maxPercent]="200"
+              [units]="'point'" [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20"
+              [titleFontSize]="30" [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900"
+              [space]="-5" [outerStrokeWidth]="5" [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'"
+              [showBackground]="true" [animation]="true" [innerStrokeWidth]="5" [titleColor]="'#483500'"
+              [subtitleColor]="'#90240e'" [showTitle]="true" [showSubtitle]="false" [showInnerStroke]="true"
+              [startFromZero]="false" [animationDuration]="2000" [showUnits]="true" [unitsFontSize]="8"
+              [unitsFontWeight]="800">
+            </circle-progress>
+          </ion-col>
+          <ion-col>
+            <br>
+            <p> <b>สวัสดี </b> | {{userEmail}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+  <div class="spacer" style="width: 300px; height: 20px;"></div>
+  <div class="cards">
+    <div class="grid-full">
+      <ion-row>
+
+        <ion-col>
+          <ion-card class="c-6" routerLink="/video-tutorial">
+            <p>
+              <ion-icon name="videocam-outline"></ion-icon>
+            </p>
+            <h4 green style="font-size: 15px;">การเรียนรู้</h4>
+          </ion-card>
+        </ion-col>
+
+
+        <ion-col (click)="state1()">
+          <ion-card class="c-1">
+            <p>แบบทดสอบ</p>
+            <h1 orange>ด่านที่ 1 </h1>
+          </ion-card>
+        </ion-col>
+
+        <ion-col>
+          <ion-card class="c-2" (click)="state2()" [disabled]="ScoreState1 === 0">
+            <p>แบบทดสอบ</p>
+            <h1 grey>ด่านที่ 2</h1>
+          </ion-card>
+        </ion-col>
+
+
+        <ion-col *ngIf="!chk_scoreState2">
+          <ion-card class="c-3" (click)="state3()" [disabled]="ScoreState1 === 0 || ScoreState2 === 0">
+            <p>แบบทดสอบ</p>
+            <h1 green>ด่านที่ 3 </h1>
+          </ion-card>
+        </ion-col>
+
+      
+        <!-- *ngIf="isAdmin === 'admin@gmail.com'" -->
+        <!-- *ngIf="chk_admin" -->
+        <ion-col *ngIf="isAdmin === 'admin@gmail.com'" >
+          <ion-card class="c-7" routerLink="/view-score">
+            <p>
+              <ion-icon name="apps-outline"></ion-icon>
+            </p>
+            <h4 green style="font-size: 15px;">TOTAL SCORE</h4>
+          </ion-card>
+        </ion-col>
+
+        <!-- <span><countdown [config]='{leftTime: duration}'>$!h!:$!m!:$!s!</countdown></span> -->
+        <ion-col>
+          <ion-card class="c-5" (click)="signout()">
+            <p>
+              <ion-icon name="log-out-outline"></ion-icon>
+            </p>
+            <h4 green style="font-size: 15px;">ออกจากระบบ</h4>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

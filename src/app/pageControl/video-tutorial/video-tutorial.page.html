@@ -1,0 +1,22 @@
+<ion-content padding >
+  <div id="container">
+    <div class="fullscreen-bg" *ngIf="!chk_showVideo">
+      <video class="video-tutorial" [autoplay]="true" muted  controls  (timeupdate)="setCurrentTime2($event)" >
+        <source src="https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/video%20tutorial%2F297740.t.mp4?alt=media&token=55f10dea-38a6-42cb-96f2-3f28e67d60fa" type="video/mp4" >     
+    </video>
+    </div>
+
+    <div class="fullscreen-bg" *ngIf="chk_showVideo">
+      <video class="video-tutorial" [autoplay]="true" muted  controls  (timeupdate)="setCurrentTime($event)"> 
+        <source src="https://firebasestorage.googleapis.com/v0/b/apgscore1103.appspot.com/o/video%20tutorial%2F297741.t.mp4?alt=media&token=aea2735e-aa5a-40d7-8855-6ebc0b2bfbb6" type="video/mp4" >     
+    </video>
+    </div>
+    <div  *ngIf="!chk_btn">
+      <ion-button class="btn btn-success" routerLink="/chooes-level">ไปที่แบบทดสอบ</ion-button>
+    </div>
+    <div  *ngIf="chk_btn">     
+    </div>   
+  </div>
+  
+</ion-content>
+

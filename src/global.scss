@@ -1,0 +1,63 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* NGX Datatable CSS */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/dark.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
+
+.my-custom-class {
+    // --backdrop-opacity: 0.2;
+    // --background: linear-gradient(90deg, rgba(165, 255, 192, 1) 1%, rgba(0, 212, 255, 1) 100%);
+    --background        : #2c3e50 !important;
+    --ion-text-color    : white !important;
+    --ion-color-step-550: white !important;
+    
+}
+
+.alert-title.sc-ion-alert-md 
+{
+    color: var(--ion-text-color,rgb(255, 255, 255));
+    --font-family: var('Athiti', sans-serif); 
+}
+
+.alert-sub-title.sc-ion-alert-md{
+    color: var(--ion-text-color,rgb(255, 255, 255));
+}
+
+.alert-message.sc-ion-alert-md{
+    color: var(--ion-text-color,rgb(255, 255, 255));
+}
+
+.alert-button.sc-ion-alert-md{
+    background-color: var(--ion-color-success-shade);
+    color: var(--ion-text-color,rgb(255, 255, 255));
+    
+}

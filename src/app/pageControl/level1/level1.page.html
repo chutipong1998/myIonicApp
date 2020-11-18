@@ -1,0 +1,128 @@
+<ion-content padding class="bg-level1">
+  <div id="container">
+    <div *ngIf="quiz.length > 0">
+      <div *ngFor="let item of quiz, let i = index;">
+        <div *ngIf="quiz.length === (quiz.length - i)">
+          <section>
+            <ion-radio-group [(ngModel)]="status">
+              <ion-list-header>
+                <ion-label>
+                  <h2>{{ quiz[i].problem }}</h2>
+                </ion-label>
+              </ion-list-header>
+              <div class="spacer" style="width: 300px; height: 30px;"></div>
+              <div class="cards">
+                <div class="grid-full">
+                  <ion-row>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
+                        <label for="control_01">
+                          <p>{{ quiz[i].option1 }}</p> {{maxtime}}
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_02" name="select" (click)="onCheck('2')" slot="start" value="2">
+                        <label for="control_02">
+
+                          <p>{{ quiz[i].option2 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_03" name="select" (click)="onCheck('3')" slot="start" value="3">
+                        <label for="control_03">
+
+                          <p>{{ quiz[i].option3 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+
+                    <ion-col>
+                      <div>
+                        <input type="radio" id="control_04" name="select" (click)="onCheck('4')" slot="start" value="4">
+                        <label for="control_04">
+
+                          <p>{{ quiz[i].option4 }}</p>
+                        </label>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </div>
+              <div>
+                <ion-row>
+                  <ion-col>
+                    <ion-button color="success" [disabled]="status === ''" (click)="next(i)">
+                      ยืนยันคำตอบ
+                    </ion-button>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-radio-group>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="scoreV1">
+    <div style="text-align: center;" *ngIf="quiz.length === 0">
+      <h2>คะแนนที่ได้</h2>
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+      <circle-progress [unitsFontWeight]="800" [percent]="(total_)" [radius]="60" [maxPercent]="200" [units]="'/10'"
+        [unitsColor]="'rgb(121, 38, 5)'" [title]="(total_ori)" [subtitle]="20" [titleFontSize]="30"
+        [titleFontWeight]="1000" [subtitleFontSize]="28" [subtitleFontWeight]="900" [space]="-5" [outerStrokeWidth]="5"
+        [outerStrokeColor]="'#24a368'" [innerStrokeColor]="'#FFF'" [showBackground]="true" [animation]="true"
+        [innerStrokeWidth]="5" [titleColor]="'#483500'" [subtitleColor]="'#90240e'" [showTitle]="true"
+        [showSubtitle]="false" [showInnerStroke]="true" [startFromZero]="false" [animationDuration]="2000"
+        [showUnits]="true" [unitsFontSize]="12" [unitsFontWeight]="800">
+
+      </circle-progress>
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+      <div *ngIf="std.state1 !== 0 else Replay">
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('chooes-level')">
+              <ion-icon slot="end" name="home-outline"></ion-icon>
+              กลับหน้าหลัก
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('level2')">
+              <!-- <ion-button color="primary" (click)="setScore('level2')"> -->
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              ด่านต่อไป
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <ng-template #Replay>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('chooes-level')">
+              <ion-icon slot="end" name="home-outline"></ion-icon>
+              กลับหน้าหลัก
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button color="primary" (click)="setScore('level1')">
+              <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+              เล่นอีกครั้ง
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ng-template>
+    </div>
+  </div>
+
+
+</ion-content>
