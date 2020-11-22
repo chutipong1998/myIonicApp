@@ -5,7 +5,11 @@
         <div *ngIf="quiz.length === (quiz.length - i)">
           <section>
             <ion-radio-group [(ngModel)]="status">
+              <div class="time">
+                <p>จับเวลา : {{maxtime}}</p>
+              </div>
               <ion-list-header>
+               
                 <ion-label>
                   <h2>{{ quiz[i].problem }}</h2>
                 </ion-label>
@@ -19,7 +23,7 @@
                       <div>
                         <input type="radio" id="control_01" name="select" (click)="onCheck('1')" slot="start" value="1">
                         <label for="control_01">
-                          <p>{{ quiz[i].option1 }}</p> {{maxtime}}
+                          <p>{{ quiz[i].option1 }}</p> 
                         </label>
                       </div>
                     </ion-col>

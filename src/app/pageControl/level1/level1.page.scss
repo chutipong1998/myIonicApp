@@ -9,7 +9,7 @@
   position: absolute;
   left: 10px;
   right: 10px;
-  top: 50%;
+  top: 49%;
   transform: translateY(-50%);
 }
 
@@ -151,3 +151,9 @@ h1 {
     }
   }
   
+  .time{
+    // padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+  }

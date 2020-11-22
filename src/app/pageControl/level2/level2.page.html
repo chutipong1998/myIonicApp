@@ -5,6 +5,9 @@
         <div *ngIf="quiz.length === (quiz.length - i)">
           <section>
             <ion-radio-group [(ngModel)]="status">
+              <div class="time">
+                <p>จับเวลา : {{maxtime}}</p>
+              </div>
               <ion-list-header>
                 <ion-label>
                   <h2>{{ quiz[i].problem }}</h2>

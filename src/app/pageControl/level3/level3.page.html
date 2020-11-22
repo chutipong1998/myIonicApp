@@ -23,6 +23,9 @@
           </section>
           <section>
             <ion-radio-group [(ngModel)]="status">
+              <div class="time">
+                <p>จับเวลา : {{maxtime}}</p>
+              </div>
               <ion-list-header>
                 <ion-label>
                   <h2>{{ problem[0].problem }}</h2>

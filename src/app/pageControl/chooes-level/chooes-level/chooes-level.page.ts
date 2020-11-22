@@ -24,7 +24,7 @@ export class ChooesLevelPage implements OnInit {
   quiz1: Question[];
   quiz2: Question[];
   quiz3: Question3[];
-  
+
   random = 0;
   total_: any;
   total_ori: any;
@@ -34,11 +34,9 @@ export class ChooesLevelPage implements OnInit {
   ScoreState2;
   chk_scoreState1: boolean;
   chk_scoreState2: boolean;
-  maxtime: any=60
-  hidevalue:boolean;
-  timer:any;
-
-  reload_page = true;
+  maxtime: any = 60;
+  hidevalue: boolean;
+  timer: any;
 
   constructor(
     private route: Router,
@@ -47,22 +45,16 @@ export class ChooesLevelPage implements OnInit {
     private platform: Platform
   ) {
     this.getDetail();
-    // this.StartTimer();
+    
     if (this.isAdmin == 'admin@gmail.com') {
       this.chk_admin = true;
     } else {
       this.chk_admin = false;
     }
 
-    if (this.reload_page == true) {
-      // this.reloadPage();
-      // window.location.href = 'chooes-level';
-      this.reload_page = false;
-    }
-
     this.platform.backButton.subscribeWithPriority(1000000, () => {
       if (this.constructor.name == 'ChooesLevelPage') {
-        if (window.confirm('do you want to exit app.')) {
+        if (window.confirm('คุณต้องการออกจาก APGARSCORE หรือไม่')) {
           navigator['app'].exitApp();
         }
       }
@@ -131,10 +123,10 @@ export class ChooesLevelPage implements OnInit {
         this.total_ = u + 19;
       } else if (u == 0) {
         this.total_ = u;
-      }else if(u == 22){
-        this.total_ = u+65;
+      } else if (u == 22) {
+        this.total_ = u + 65;
       }
-  
+
       this.total_ori = u;
       console.log(this.total_);
       this.ScoreState1 = this.userlist[index].mystate1;

@@ -38,16 +38,10 @@ export class Level1Page implements OnInit {
   hidevalue: boolean;
   timer: any;
 
-  reload_page = true;
-
   constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController, private platform: Platform) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
 
-    // this.lodeData();
-    // console.log('data:', this.lodeData());
-    // clearInterval(this.timer);
-    // this.StartTimer(this.maxtime);
     let q = localStorage.getItem('quiz');
     this.quiz = JSON.parse(q);
 
@@ -56,9 +50,9 @@ export class Level1Page implements OnInit {
 
     this.platform.backButton.subscribeWithPriority(1000000, () => {
       if (this.constructor.name == 'Level1Page') {
-        if (window.confirm('do you want to exit app.')) {
-          navigator['app'].exitApp();
-        }
+        clearInterval(this.timer);
+        console.log('reset เวลาแล้ว');
+        this.route.navigate([`chooes-level`], { replaceUrl: true });
       }
     });
 
@@ -81,48 +75,9 @@ export class Level1Page implements OnInit {
       console.log('userlist =', this.userlist);
       this.index = this.userlist.findIndex(std => std.myuid === this.uid);
       console.log('index vel1', this.index);
-      // clearInterval(setTimeout( x => {}));
-      this.StartTimer(this.maxtime);
     });
+    this.StartTimer(this.maxtime);
   }
-
-  // StartTimer1(maxtime: any) {
-  //   this.timer = setTimeout(x => {
-  //     // if (this.maxtime <= 0) { }
-  //     // this.maxtime -= 1;
-
-  //     if (maxtime > 0) {
-  //       maxtime -= 1;
-  //       this.maxtime = maxtime;
-  //     } else if (maxtime === 0) {
-  //       this.maxtime = 0;
-  //       return;
-  //     }
-
-  //     if (maxtime >= 0) {
-  //       this.hidevalue = false;
-  //       if (maxtime > 0) {
-  //         this.StartTimer(maxtime);
-  //       } else if (maxtime === 0) {
-  //         this.next(0);
-  //       }
-  //     }
-
-  //     else {
-  //       this.hidevalue = true;
-  //     }
-
-  //   }, 1000);
-  //   // if (this.reload_page == true) {
-  //   //   clearInterval(this.timer);
-  //   //   this.reload_page = false;
-  //   //   console.log('reload_page', this.reload_page);
-  //   //   this.StartTimer(maxtime);
-  //   // } else {
-  //   // console.log('โหลดเสร็จแล้ว');
-  //   // }
-  //   console.log('Timer Maxtime  = ', maxtime);
-  // }
 
   onCheck(str: string) {
     console.log('*****************');
@@ -229,8 +184,6 @@ export class Level1Page implements OnInit {
     console.log('this.quiz.length =', this.quiz.length);
     if (this.quiz.length != 0) {
       this.timer = setTimeout(x => {
-        // if (this.maxtime <= 0) { }
-        // this.maxtime -= 1;
 
         if (maxtime > 0) {
           maxtime -= 1;

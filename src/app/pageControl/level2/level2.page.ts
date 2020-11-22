@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/question';
 import { ServiceApiService } from 'src/app/service/service-api.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { Q3SET1, Q3SET2 } from 'src/app/mock/mock-question3';
 
 @Component({
@@ -32,18 +32,28 @@ export class Level2Page implements OnInit {
   };
   total_: any;
   total_ori: any;
+  index: any;
+  maxtime: any = 60;
+  hidevalue: boolean;
+  timer: any;
 
-  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController) {
+  constructor(private route: Router, private myapi: ServiceApiService, private alertCtrl: AlertController, private platform: Platform) {
     this.uid = localStorage.getItem('uid');
     console.log('uid = ' + this.uid);
-
-    // this.lodeData();
-    // console.log('data:', this.lodeData());
 
     let q = localStorage.getItem('quiz2');
     this.quiz = JSON.parse(q);
     console.log('quiz2x =', this.quiz[0].problem, 'ans =', this.quiz[0].answer);
     console.log(JSON.parse(q));
+
+    this.platform.backButton.subscribeWithPriority(1000000, () => {
+      if (this.constructor.name == 'Level2Page') {
+        clearInterval(this.timer);
+        console.log('reset เวลาแล้ว');
+        this.route.navigate([`chooes-level`], { replaceUrl: true });
+      }
+    });
+
   }
 
   ngOnInit() {
@@ -61,6 +71,7 @@ export class Level2Page implements OnInit {
       });
       console.log('userlist =', this.userlist);
     });
+    this.StartTimer(this.maxtime);
   }
 
   onCheck(str: string) {
@@ -70,16 +81,17 @@ export class Level2Page implements OnInit {
   }
 
   next(i) {
+    clearInterval(this.timer);
     console.log('OK status:', this.status);
     if (this.quiz[i].answer === this.status) {
-      this.correct(this.quiz[i].txt); 
-      
+      this.correct(this.quiz[i].txt);
+
       console.log('score =', this.std.state2);
     } else {
       this.result_was_wrong(this.quiz[i].txt);
-      
+
       console.log(this.quiz[i].txt);
-      
+
       console.log('score =', this.std.state2);
     }
     // this.quiz.splice(0, 1);
@@ -112,10 +124,11 @@ export class Level2Page implements OnInit {
   }
 
   setScore(url: string) {
+    clearInterval(this.timer);
     console.log(url);
     let index = this.userlist.findIndex(std => std.myuid === this.uid);
     console.log('index:', index);
-  
+
     if (this.std.state2 > this.userlist[index].mystate2) {
       let newrecord = {};
       newrecord['state2'] = this.std.state2;
@@ -163,26 +176,59 @@ export class Level2Page implements OnInit {
     }
   }
 
+  StartTimer(maxtime: any) {
+    console.log('this.quiz.length =', this.quiz.length);
+    if (this.quiz.length != 0) {
+      this.timer = setTimeout(x => {
+
+        if (maxtime > 0) {
+          maxtime -= 1;
+          this.maxtime = maxtime;
+        } else if (maxtime === 0) {
+          this.maxtime = 0;
+          return;
+        }
+
+        if (maxtime >= 0) {
+          this.hidevalue = false;
+          if (maxtime > 0) {
+            this.StartTimer(maxtime);
+          } else if (maxtime === 0) {
+            this.next(0);
+          }
+        }
+
+        else {
+          this.hidevalue = true;
+        }
+
+      }, 1000);
+    }
+    console.log('Timer Maxtime  = ', maxtime);
+  }
+
   async correct(msg) {
     let alert = await this.alertCtrl.create({
       header: 'ยินดีด้วย คุณตอบถูก',
       // subHeader: 'คุณตอบถูก',
-      message: 'คำตอบคือ :  '+msg,
-      cssClass:'my-custom-class',
+      message: 'คำตอบคือ :  ' + msg,
+      cssClass: 'my-custom-class',
       buttons: [
         {
-         text: 'ตกลง',
+          text: 'ตกลง',
           role: 'ok',
           handler: () => {
-            this.std.state2 += 1;    
+            this.std.state2 += 1;
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
+            this.maxtime = 60;
+            this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
           }
         }
-      ],backdropDismiss: false
+      ], backdropDismiss: false
     });
     await alert.present();
   }
@@ -191,18 +237,20 @@ export class Level2Page implements OnInit {
     let alert = await this.alertCtrl.create({
       header: 'คุณตอบผิด !!',
       // subHeader: 'เฉลย',
-      message: 'เฉลย : '+txt,    
-      cssClass:'my-custom-class',
+      message: 'เฉลย : ' + txt,
+      cssClass: 'my-custom-class',
       buttons: [
         {
           text: 'ตกลง',
           role: 'ok',
           handler: () => {
-            this.std.state2 += 0;   
+            this.std.state2 += 0;
             this.quiz.splice(0, 1);
             console.log('count =', this.quiz.length);
             console.log('catd =', this.quiz);
             this.status = '';
+            this.maxtime = 60;
+            this.StartTimer(this.maxtime);
             // console.log('Cancel clicked');
           }
         }
